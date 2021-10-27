@@ -51,12 +51,20 @@ def research():
         for i in range(len(liste_tanks2)):
             fichier_csv.write(str(liste_tanks2[i]) + "\n")
 
+def conv(nbr):
+    nbr2=''
+    for i in nbr:
+        if i!=',':
+            nbr2+=i
+        else:
+            return int(nbr2)
+
 def graph():
     WN8= []
     date = []
     for i in range(len(tanks)):
         if tanks[i]["tank name"] == liste.get():
-            WN8.append(tanks[i]["WN8"])
+            WN8.append(conv(tanks[i]["WN8"]))
             date.append(tanks[i]["date"])
     plt.title(liste.get())
     plt.plot(date, WN8)
